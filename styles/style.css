@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -19,16 +20,29 @@ background-color: rgb(254, 232, 235);
   z-index: 1000;
 }
 
+.hamburger {
+  position:absolute;
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #6b6b6b;
+  right:30px;
+  bottom:7px;
+}
+
 footer {
   background-color: rgb(254, 232, 235);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 /*
 rgb(249, 94, 110); dark pink
 #6b6b6b; gray
 */
+
+
 body {
   background-color: white;
 }
@@ -94,6 +108,10 @@ h3{
   width: 200px;
   height: 105px;
   object-fit: cover;
+}
+
+.logo-image-mobile{
+  display:none;
 }
 
 .social-icons{
@@ -382,4 +400,172 @@ flex:1;
 
 .contact-map{
   margin-top:50px;
+}
+
+
+
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .home-content,
+  .platouri-content,
+  .contact-content {
+    margin: 40px 40px;
+    grid-template-columns: 1fr;
+  }
+
+  .home-description {
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .platouri-description {
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .contact-details {
+    height: auto;
+    padding: 30px;
+  }
+
+  .menu {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .home-picture {
+    height: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p, a {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .branding {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .logo,
+  .logo-image {
+    width: 150px;
+    height: auto;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home-description,
+  .platouri-description {
+    padding: 30px 20px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-contact-container,
+  .footer-legal-container {
+    align-items: center;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  p, a {
+    font-size: 16px;
+  }
+
+  .menu a {
+   
+    font-size: 14px;
+  }
+
+.background-image,
+.logo-image{
+  display:none;
+}
+
+  .contact-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .logo-image-mobile{
+    display:inline;
+    height:100px;
+    width:100px;
+    position:absolute;
+    bottom:-23px;
+    left:1rem;
+  }
+
+  header{
+    height:0;
+  }
+ .menu {
+   background-color: rgb(254, 232, 235);
+    display: none;
+  }
+  .social-icons{
+    display:none;
+  }
+ .hamburger {
+    display: block;
+  }
+  .nav-header{
+    height: 50px;
+  }
+
+.platouri-picture{
+  height:200px;
+}
+
+ input,
+ textarea
+ {
+  width:260px;
+ }
+
+  .contact-message{
+    padding-bottom:40px;
+  }
+ .contact-button{
+  position:absolute;
+  bottom:-20px;
+  right:10px;
+  padding: 10px 26px;
+}
 }
