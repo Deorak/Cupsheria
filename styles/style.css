@@ -16,7 +16,7 @@ background-color: rgb(254, 232, 235);
   top:0;
   left:0;
   right:0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 footer {
@@ -284,7 +284,6 @@ background-color: brown;
 .footer-content{
   display:flex;
   flex-direction: row;
-  
   justify-content: space-between;
   width: 80%;
   gap:80px;
@@ -322,10 +321,11 @@ flex:1;
 }
 
 .footer-contact-container{
-display: flex;
+  display: flex;
   flex-direction: column;
   padding-left:1rem;
   gap:8px;
+  align-items: flex-start;
 }
 
 .footer-icon, 
@@ -333,7 +333,7 @@ display: flex;
    width: 18px;
   height: 18px;
   object-fit: cover;
-  align-items: center;
+  
 }
 
 .footer-contact-item,
