@@ -6,6 +6,12 @@
   text-align: center;
 }
 
+/*
+rgb(249, 94, 110); dark pink #f95e6e
+#6b6b6b; gray
+*/
+
+
 header {
   background-color: rgb(254, 232, 235);
   
@@ -37,10 +43,6 @@ footer {
   align-items: center;
 }
 
-/*
-rgb(249, 94, 110); dark pink
-#6b6b6b; gray
-*/
 
 
 body {
@@ -198,6 +200,62 @@ padding: 150px 100px 150px 100px;
   padding: 60px 80px 60px 80px;
 }
 
+/*======================================================================================*/
+
+.torturi-content{
+  display: flex;
+   flex-direction: column;
+  align-items: center;
+}
+
+.torturi-content h2{
+  margin:2rem 0 2rem 0;
+}
+
+.torturi-description{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+
+  margin: 2rem 0px 2rem 0px;
+}
+
+input[type="radio"]{
+display:none;
+}
+ 
+label{
+color:#e64a64;
+background-color: rgb(254, 232, 235);
+width:80px;
+height: 30px;
+border:none;
+border-radius: 100px;
+
+margin:0 10px 0 40px;
+
+display:flex;
+align-items: center;
+justify-content: center;
+}
+
+input[type="radio"]:checked+label{
+  color:white;
+  background-color:#e64a64;
+}
+
+.torturi-content-container{
+  width:800px;
+    display: flex;
+    flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.torturi-icon{
+  height:80px;
+}
+
 .contact-content{
     margin: 50px 110px 80px 110px;
     display: grid;
@@ -228,11 +286,9 @@ padding:20px 60px 20px 60px;
   
 }
 
-input,
-textarea{
-  color: #6b6b6b;
-  width:712px;
-}
+
+
+
 
 .contact-button{
    background-color: rgb(249, 94, 110);
@@ -276,8 +332,19 @@ textarea{
  flex-direction: column;
  justify-content: space-between;
 
- padding:20px 0px 0px 20px;
- margin:20px 0px 0px 20px;
+  color: #6b6b6b;
+  width:712px;
+  font-size: 16px;
+  text-align: left;
+
+  padding:10px 0px 10px 20px;
+  margin:20px 0px 0px 20px;
+
+resize: none;
+}
+
+.contact-message h2{
+  padding-left:20px;
 }
 
 .logo-brown{
@@ -496,6 +563,8 @@ flex:1;
   .footer-legal-container {
     align-items: center;
   }
+
+
 }
 
 /* Extra Small Mobile */
@@ -512,6 +581,11 @@ flex:1;
    
     font-size: 14px;
   }
+
+.contact-map{
+  width:400px;
+  height:300px;
+}
 
 .background-image,
 .logo-image{

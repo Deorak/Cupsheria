@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <html>
+ 
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -12,6 +14,20 @@
   
   <link rel="stylesheet" href="styles/style.css">
   <link rel="shortcut icon" href="icons/tab-icon-2.webp">
+
+  <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+
+  <script type="text/javascript">
+    (function(){
+        emailjs.init({
+          publicKey: "53zbAOSIO2Ie4Cyz0",
+        });
+    })();
+  </script>
+</head>
+
 
 <body>
   <header>
@@ -47,8 +63,8 @@
     <ul class="menu">
       <li><a href="index.html">ACASA</a></li>
       <li><a href="platouri.html">PLATOURI</a></li>
-      <li><a href="index.html">TORTURI-WIP</a></li>
-      <li><a href="index.html">COMENZI-WIP</a></li>
+      <li><a href="torturi.html">TORTURI-WIP</a></li>
+      <li><a href="evenimente.html">EVENIMENTE</a></li>
       <li><a href="contact.html">CONTACT</a></li>
     </ul>
   </nav>
@@ -95,11 +111,11 @@
       
       <div class = "contact-message">
          <h2>Aveţi o întrebare/mesaj?!</h2>
-         <input type="text" placeholder="Nume">
-         <input type="email" placeholder="E-mail">
-         <input type="tel" placeholder="Telefon">
-         <textarea placeholder="Mesaj"></textarea>
-         <button class="contact-button">Trimite</button>
+         <input type="text" id="message-name" placeholder="Nume">
+         <input type="email" id="message-email" placeholder="E-mail">
+         <input type="tel" id="message-phone" placeholder="Telefon">
+         <textarea id="message-content" placeholder="Mesaj"></textarea>
+         <button class="contact-button" onclick="sendMail()">Trimite</button>
          
       </div>
     </div>  
@@ -110,8 +126,8 @@
       <div class="footer-content">
         <div class="footer-about">
           <h3>Cupsheria</h3>
-          <p>After several years of being out of print, the original cookbook is back with nine new recipes, 
-        including Lemon Cloud Cake</p>
+          <p>La Cupsheria creăm torturi și platouri pentru orice eveniment nunți, botezuri, banchete sau aniversări.
+        Folosim ingrediente de calitate, rețete rafinate și design elegant pentru a transforma momentele speciale în amintiri dulci.</p>
         </div>
         <div class="footer-schedule">
           <h3>Program</h3>
@@ -183,5 +199,6 @@
   });
 </script>
 
+<script  src="test.js"></script>
   </body>
   </html>
