@@ -214,6 +214,7 @@ padding: 150px 100px 150px 100px;
 
 .torturi-description{
   display: flex;
+  flex-direction: column;
   justify-content: center; 
   align-items: center;
 
@@ -227,7 +228,7 @@ display:none;
 label{
 color:#e64a64;
 background-color: rgb(254, 232, 235);
-width:80px;
+width:90px;
 height: 30px;
 border:none;
 border-radius: 100px;

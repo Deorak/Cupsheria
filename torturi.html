@@ -66,8 +66,41 @@
 
         <div class="torturi-description">
 
+          
+        <form onsubmit="checkOrder(event)">
+
+             <div class="torturi-content-container">
+            <img class="torturi-icon" src="icons/tab-icon-2.webp" asdf>
+            <input type="radio" id="radio-dimensiune-1" name="radio-dimensiune" value="dimensiune-20cm">
+           <label for="radio-dimensiune-1">20cm</label>
+            <input type="radio" id="radio-dimensiune-2" name="radio-dimensiune" value="dimensiune-30cm">
+           <label for="radio-dimensiune-2">30cm</label>
+            <input type="radio" id="radio-dimensiune-3" name="radio-dimensiune" value="dimensiune-40cm">
+           <label for="radio-dimensiune-3">40cm</label>
+          </div>
+
+           <div class="torturi-content-container">
+            <img class="torturi-icon" src="icons/tab-icon-2.webp">
+           <input type="radio" id="radio-glazura-1" name="radio-glazura" value="glazura-oglinda">
+           <label for="radio-glazura-1">oglinda</label>
+            <input type="radio" id="radio-glazura-2" name="radio-glazura" value="glazura-frisca">
+           <label for="radio-glazura-2">frisca</label>
+            <input type="radio" id="radio-glazura-3" name="radio-glazura" value="glazura-ciocolata">
+           <label for="radio-glazura-3">ciocolata</label>
+          </div>
+
+           <div class="torturi-content-container">
+            <img class="torturi-icon" src="icons/tab-icon-2.webp">
+           <input type="radio" id="radio-umplutura-1" name="radio-umplutura" value="umplutura-ciocolata">
+           <label for="radio-umplutura-1">ciocolata</label>
+            <input type="radio" id="radio-umplutura-2" name="radio-umplutura" value="umplutura-vanilie">
+           <label for="radio-umplutura-2">vanilie</label>
+            <input type="radio" id="radio-umplutura-3" name="radio-umplutura" value="umplutura-caramel">
+           <label for="radio-umplutura-3">caramel</label>
+          </div>
+
           <div class="torturi-content-container">
-            <img class="torturi-icon" src="icons/blat.png" asdf>
+            <img class="torturi-icon" src="icons/tab-icon-2.webp">
            <input type="radio" id="radio-blat-1" name="radio-blat" value="blat-ciocolata">
            <label for="radio-blat-1">ciocolata</label>
             <input type="radio" id="radio-blat-2" name="radio-blat" value="blat-vanilie">
@@ -75,14 +108,93 @@
             <input type="radio" id="radio-blat-3" name="radio-blat" value="blat-caramel">
            <label for="radio-blat-3">caramel</label>
           </div>
-          
+
         </div>
+        <p id="selection-text">Inca nu ai ales nimic.</p>
+        <button class="torturi-button" type="submit">Adauga la comanda</button>
+     </form>
     </div>
        
-  
-   
 
-    
+
+</script>
+
+<script>
+  const selectionText = document.getElementById('selection-text');
+
+  function updateSelection() {
+    const dimensiune = document.querySelector('input[name="radio-dimensiune"]:checked');
+    const glazura = document.querySelector('input[name="radio-glazura"]:checked');
+    const umplutura = document.querySelector('input[name="radio-umplutura"]:checked');
+    const blat = document.querySelector('input[name="radio-blat"]:checked');
+
+    let message = "Alegerea ta: ";
+
+    if (dimensiune) {
+      message +=  dimensiune.value;
+    }
+    if (glazura) {
+      message += (dimensiune ? " + " : "") + glazura.value;
+    }
+    if (umplutura) {
+      message +=  (glazura ? " + " : "") + umplutura.value;
+    }
+    if (blat) {
+      message += (umplutura ? " + " : "") + blat.value;
+    }
+    selectionText.textContent = message;
+  }
+
+  
+  document.querySelectorAll('input[name="radio-dimensiune"], input[name="radio-glazura"], input[name="radio-umplutura"], input[name="radio-blat"]').forEach(radio => {
+    radio.addEventListener('change', updateSelection);
+  });
+
+
+</script>
+
+
+
+<script>
+     
+function checkOrder(event) {
+  
+  event.preventDefault(); // stop submit
+
+  const selectedDimensiune = document.querySelector('input[name="radio-dimensiune"]:checked');
+  if (!selectedDimensiune) {
+    alert("⚠️ Trebuie sa alegi o dimensiune!"); 
+    return;
+  }
+
+  const selectedGlaz = document.querySelector('input[name="radio-glazura"]:checked');
+  if (!selectedGlaz) {
+    alert("⚠️ Trebuie sa alegi o glazura!"); 
+    return;
+  }
+
+
+   const selectedUmplutura = document.querySelector('input[name="radio-umplutura"]:checked');
+  if (!selectedUmplutura) {
+    alert("⚠️ Trebuie sa alegi o umplutura!"); 
+    return;
+  }
+
+   const selectedBlat = document.querySelector('input[name="radio-blat"]:checked');
+  if (!selectedBlat) {
+    alert("⚠️ Trebuie sa alegi un blat!"); 
+    return;
+  }
+  addOrder();
+}
+
+
+  function addOrder(){
+  
+    alert(selectionText.textContent);
+ 
+  }
+</script>
   </main>
 
    <footer>
