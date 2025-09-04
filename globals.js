@@ -1,1 +1,1 @@
-window.myBasket = [];
+window.cart = [];
