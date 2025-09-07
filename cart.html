@@ -81,7 +81,14 @@
       <div class="cart-content" id="cart"></div>
      
     </div>
+<script>
+  function test() {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
+    console.log(Object.keys(cart).length);
+  
+  }
+</script>
 
     <div class="cart-summary">
       <h3>Summary</h3>
@@ -91,7 +98,7 @@
       <p>Total: <strong>200 RON</strong></p>
       <p>Total: <strong>200 RON</strong></p>
       <p>Total: <strong>200 RON</strong></p>
-      <button class="cart-button" onclick="//sendMail()">Comanda</button>
+      <button class="summary-button" onclick="test()">Comanda</button>
     </div>
 
 </div>  
@@ -103,18 +110,56 @@
    <script>
    
     function renderCart() {
+       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
       const cartDiv = document.getElementById('cart');
       cartDiv.innerHTML = '';
 
-      if (window.cart.length === 0) {
+      if (Object.keys(cart).length === 0) {
         cartDiv.innerHTML = '<p>Cosul tau este gol</p>';
         return;
       }
 
-      window.cart.forEach((item, index) => {
+      Object.entries(cart).forEach(([key, value]) => {
         const div = document.createElement('div');
+        const cartActions=document.createElement('div');
+        const decrement = document.createElement("BUTTON");
+        const increment = document.createElement("BUTTON");
+
         div.className = 'cart-item';
-        div.textContent = `${item}`;
+        div.textContent = `${key}`+` (x${value})`;
+        
+        cartActions.className = "cart-actions";
+
+        decrement.className = "cart-button";
+        decrement.textContent = "-";
+
+        increment.className = "cart-button"
+        increment.textContent = "+";
+
+       decrement.onclick = function() {
+          
+          cart[key] -=1;
+          if (cart[key] === 0) {
+            delete cart[key];
+          }
+          
+          sessionStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        };
+
+        increment.onclick = function() {
+           cart[key] +=1;
+          
+          
+          sessionStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        };
+
+        cartActions.appendChild(decrement);
+        cartActions.appendChild(increment);
+        div.appendChild(cartActions);
+        
+        
         cartDiv.appendChild(div);
       });
     }

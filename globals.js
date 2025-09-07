@@ -1,1 +1,1 @@
-window.cart = [];
+window.cart = ["test"];

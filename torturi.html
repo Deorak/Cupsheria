@@ -243,10 +243,27 @@
       }
 
 
-      function addOrder() {
+     /* function addOrder() {
+        let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
         cart.push(selectionText.textContent);
+         sessionStorage.setItem("cart", JSON.stringify(cart));
         console.log(cart);
-      }
+      }*/
+
+      function addOrder() {
+  // Load cart or start with empty object
+  let cart = JSON.parse(sessionStorage.getItem("cart")) || {};
+
+  let item = selectionText.textContent;
+
+  // Update count
+  cart[item] = (cart[item] || 0) + 1;
+
+  // Save cart back
+  sessionStorage.setItem("cart", JSON.stringify(cart));
+
+  console.log(cart);
+}
     </script>
 
 
