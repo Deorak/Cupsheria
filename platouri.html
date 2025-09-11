@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 
 <html>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <title>Cupsheria</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="shortcut icon" href="icons/tab-icon-2.webp">
+<title>Cupsheria</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="styles/style.css">
+<link rel="shortcut icon" href="icons/tab-icon-2.webp">
 
 
 <body>
   <header>
-  <div class="branding">
+    <div class="branding">
 
-    <div class="left-spacer"></div>
+      <div class="left-spacer"></div>
 
-    <div class="logo">
-      <h1>
-        <img class="logo-image" src="icons/logo.png" alt="Logo">
-     </h1>
-    </div>
-  
-    <div class="social-icons">
-      <div class="test-inner">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"> <img src="icons/instagram.png" alt="Instagram"></a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="icons/facebook.png" alt="Facebook"></a>
-      <a href="https://youtu.be/6ohRg82HuGo" target="_blank" rel="noopener noreferrer"><img src="icons/youtube.png" alt="Youtube"></a>
-      <a href="https://maps.app.goo.gl/iTdoX1YxAMVWueyJ9" target="_blank" rel="noopener noreferrer"><img src="icons/location.png" alt="Location"></a>
+      <div class="logo">
+        <h1>
+          <img class="logo-image" src="icons/logo.png" alt="Logo">
+        </h1>
+      </div>
+
+      <div class="social-icons">
+        <div class="test-inner">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"> <img src="icons/instagram.png"
+              alt="Instagram"></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="icons/facebook.png"
+              alt="Facebook"></a>
+          <a href="https://youtu.be/6ohRg82HuGo" target="_blank" rel="noopener noreferrer"><img src="icons/youtube.png"
+              alt="Youtube"></a>
+          <a href="https://maps.app.goo.gl/iTdoX1YxAMVWueyJ9" target="_blank" rel="noopener noreferrer"><img
+              src="icons/location.png" alt="Location"></a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <header class="nav-header">
     <nav>
@@ -44,159 +50,203 @@
         <img class="logo-image-mobile" src="icons/logo.png" alt="Logo">
       </h1>
       <div class="hamburger">&#9776;</div>
-           
+
       <div class="menu-container">
         <div class="left-spacer"></div>
-      <ul class="menu">
-        <li><a href="index.html">ACASA</a></li>
-        <li><a href="platouri.html">PLATOURI</a></li>
-        <li><a href="torturi.html">TORTURI-WIP</a></li>
-        <li><a href="evenimente.html">EVENIMENTE</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-      
-      </ul>
-      <div class="cart-icon-container"> 
-        <a class="cart-icon" href="cart.html" > <img src="icons/shopping-cart.png"
-              alt="Cart"></a></div>
-       </div>
+        <ul class="menu">
+          <li><a href="index.html">ACASA</a></li>
+          <li><a href="platouri.html">PLATOURI</a></li>
+          <li><a href="torturi.html">TORTURI-WIP</a></li>
+          <li><a href="evenimente.html">EVENIMENTE</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+
+        </ul>
+        <div class="cart-icon-container">
+          <a class="cart-icon" href="cart.html"> <img src="icons/shopping-cart.png" alt="Cart"></a>
+        </div>
+      </div>
     </nav>
   </header>
 
   <main>
     <div class="platouri-content">
 
-        <img class="platouri-picture" src="pictures/platou1.jpg">
+      <img class="platouri-picture" src="pictures/platou1.jpg">
 
-      <div class = "platouri-description">
-         <h2>Platou numaru 1</h2>
-          <p>
-        A se scrie despre ce contine platou nr 1. A se scrie despre ce contine platou nr 1.
-         A se scrie despre ce contine platou nr 1. A se scrie despre ce contine platou nr 1.
-          A se scrie despre ce contine platou nr 1. 
-         </p>
-           <p>
-        <strong>Altceva platou nr 1.</strong><br>
-        Alte detalii platou nr 1<br>
-          </p>
+      <div class="platouri-description">
+        <h2>Platou numaru 1</h2>
+        <p>
+          A se scrie despre ce contine platou nr 1. A se scrie despre ce contine platou nr 1.
+          A se scrie despre ce contine platou nr 1. A se scrie despre ce contine platou nr 1.
+          A se scrie despre ce contine platou nr 1.
+        </p>
+        <p>
+          <strong>Altceva platou nr 1.</strong><br>
+          Alte detalii platou nr 1<br>
+        </p>
+        <div class="platouri-addtocart">
+          <input type="number" id="quantity" data-item="platou1" name="quantity" min="1" max="20" value="1">
+          <button type="button" data-item="platou1" onclick="addOrder(this)">Adauga in cos</button>
+        </div>
       </div>
     </div>
 
     <div class="platouri-content">
 
-        <img class="platouri-picture" src="pictures/platou2.webp">
+      <img class="platouri-picture" src="pictures/platou2.webp">
 
-      <div class = "platouri-description">
-         <h2>Platou numaru 2</h2>
-          <p>
-        A se scrie despre ce contine platou nr 2. A se scrie despre ce contine platou nr 2.
-        A se scrie despre ce contine platou nr 2.A se scrie despre ce contine platou nr 2.
-        A se scrie despre ce contine platou nr 2. A se scrie despre ce contine platou nr 2.
+      <div class="platouri-description">
+        <h2>Platou numaru 2</h2>
+        <p>
+          A se scrie despre ce contine platou nr 2. A se scrie despre ce contine platou nr 2.
+          A se scrie despre ce contine platou nr 2.A se scrie despre ce contine platou nr 2.
+          A se scrie despre ce contine platou nr 2. A se scrie despre ce contine platou nr 2.
 
-         </p>
-           <p>
-        <strong>Altceva platou nr 2.</strong><br>
-        Alte detalii platou nr 2<br>
-          </p>
+        </p>
+        <p>
+          <strong>Altceva platou nr 2.</strong><br>
+          Alte detalii platou nr 2<br>
+        </p>
+        <div class="platouri-addtocart">
+          <input type="number" id="quantity" data-item="platou2" name="quantity" min="1" max="20" value="1">
+          <button type="button" data-item="platou2" onclick="addOrder(this)">Adauga in
+            cos</button>
+        </div>
       </div>
     </div>
 
     <div class="platouri-content">
 
-        <img class="platouri-picture" src="pictures/platou3.jpg">
+      <img class="platouri-picture" src="pictures/platou3.jpg">
 
-      <div class = "platouri-description">
-         <h2>Platou numaru 3</h2>
-          <p>
-        A se scrie despre ce contine platou nr 3. A se scrie despre ce contine platou nr 3. 
-        A se scrie despre ce contine platou nr 3. A se scrie despre ce contine platou nr 3. 
-        A se scrie despre ce contine platou nr 3. 
-         </p>
-           <p>
-        <strong>Altceva platou nr 3.</strong><br>
-        Alte detalii platou nr 3<br>
-          </p>
+      <div class="platouri-description">
+        <h2>Platou numaru 3</h2>
+        <p>
+          A se scrie despre ce contine platou nr 3. A se scrie despre ce contine platou nr 3.
+          A se scrie despre ce contine platou nr 3. A se scrie despre ce contine platou nr 3.
+          A se scrie despre ce contine platou nr 3.
+        </p>
+        <p>
+          <strong>Altceva platou nr 3.</strong><br>
+          Alte detalii platou nr 3<br>
+        </p>
+        <div class="platouri-addtocart">
+          <input type="number" id="quantity" data-item="platou3" name="quantity" min="1" max="20" value="1">
+          <button type="button" data-item="platou3" onclick="addOrder(this)">Adauga in
+            cos</button>
+        </div>
       </div>
     </div>
+    <script>
+      function addOrder(button) {
+        const productBox = button.closest(".platouri-addtocart"); 
+        const input = productBox.querySelector("input[type=number]"); 
+        const quantity = input.value;
 
-    
+        let cart = JSON.parse(sessionStorage.getItem("cart")) || {};
+
+      console.log(quantity);
+
+      
+        cart[button.dataset.item] = (cart[button.dataset.item] || 0) + Number(quantity);
+
+        
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+
+        console.log(cart);
+
+        console.log("Item:", button.dataset.item);
+        console.log("Quantity:", quantity);
+
+
+      }
+    </script>
+
   </main>
 
-   <footer>
-      <div class="footer-content">
-        <div class="footer-about">
-          <h3>Cupsheria</h3>
-          <p>After several years of being out of print, the original cookbook is back with nine new recipes, 
-        including Lemon Cloud Cake</p>
-        </div>
-        <div class="footer-schedule">
-          <h3>Program</h3>
-          <div class="footer-orar">
-            <div class="orar-item">
-              <p>Luni-Joi</p>
-              <p>(08:00 - 20:00)</p>
-            </div>
-            <div class="orar-item">
-              <p>Vineri-Sâmbătă</p>
-              <p>(08:00 - 22:00)</p>
-            </div>
-            <div class="orar-item">
-              <p>Duminică</p>
-              <p>(Închis)</p>
-            </div>
-          </div>
-          
-        </div>
-        <div class="footer-contact">
-          <h3>Contact</h3>
-          <div class="footer-contact-container">
-            <div class="footer-contact-item">
-              <img class="footer-icon" src="icons/telephone.png">
-              <a>0722.123.456</a>
-            </div>
-            <div class="footer-contact-item">
-              <img class="footer-icon" src="icons/email.png">
-              <a>cupsheria@gmailmail.com</a>
-            </div>
-            <div class="footer-contact-item">
-              <img class="footer-icon" src="icons/instagram.png">
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">www.instagram.com</a>
-            </div>
-            <div class="footer-contact-item">
-              <img class="footer-icon" src="icons/facebook.png" >
-               <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">facebook.com</a>
-            </div>
-            <div class="footer-contact-item">
-              <img class="footer-icon" src="icons/location.png">
-               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/1cvs5pXQ4PTqxDXr9</a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-legal">
-          <h3>Legal</h3>
-          <div class="footer-legal-container">
-            <a class="legal-item" href="index.html">Termeni si conditii</a>
-            <a class="legal-item"  href="index.html">Livrare si retururi</a>
-            <a class="legal-item"  href="index.html">Informatii nutritionale</a>
-            <a class="legal-item"  href="index.html">Politica de confidentialitate</a>
-            <a href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener noreferrer"> <img class="footer-anpc" src="pictures/anpc-sal1-1.png" alt="Anpc"></a>
-            <a href="https://consumer-redress.ec.europa.eu/site-relocation_en?event=main.home2.show&lng=RO" target="_blank" rel="noopener noreferrer"><img class="footer-anpc" src="pictures/anpc-sol.png" alt="Anpc 2"></a>
-          </div>
-        </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3>Cupsheria</h3>
+        <p>After several years of being out of print, the original cookbook is back with nine new recipes,
+          including Lemon Cloud Cake</p>
       </div>
+      <div class="footer-schedule">
+        <h3>Program</h3>
+        <div class="footer-orar">
+          <div class="orar-item">
+            <p>Luni-Joi</p>
+            <p>(08:00 - 20:00)</p>
+          </div>
+          <div class="orar-item">
+            <p>Vineri-Sâmbătă</p>
+            <p>(08:00 - 22:00)</p>
+          </div>
+          <div class="orar-item">
+            <p>Duminică</p>
+            <p>(Închis)</p>
+          </div>
+        </div>
 
-      <div class="footer-copyright">
-        <p>&copy; 2025 Cupsheria. Toate drepturile rezervate. Dezvoltat de <a href="https://d.newsweek.com/en/full/1905075/file-photo-smiling-dog.jpg?w=1200&f=ca8af48b1c6f394ff2244b683553f637"> PW</a></p>
       </div>
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <div class="footer-contact-container">
+          <div class="footer-contact-item">
+            <img class="footer-icon" src="icons/telephone.png">
+            <a>0722.123.456</a>
+          </div>
+          <div class="footer-contact-item">
+            <img class="footer-icon" src="icons/email.png">
+            <a>cupsheria@gmailmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <img class="footer-icon" src="icons/instagram.png">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">www.instagram.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <img class="footer-icon" src="icons/facebook.png">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">facebook.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <img class="footer-icon" src="icons/location.png">
+            <a href="https://www.instagram.com/" target="_blank"
+              rel="noopener noreferrer">https://maps.app.goo.gl/1cvs5pXQ4PTqxDXr9</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <h3>Legal</h3>
+        <div class="footer-legal-container">
+          <a class="legal-item" href="index.html">Termeni si conditii</a>
+          <a class="legal-item" href="index.html">Livrare si retururi</a>
+          <a class="legal-item" href="index.html">Informatii nutritionale</a>
+          <a class="legal-item" href="index.html">Politica de confidentialitate</a>
+          <a href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener noreferrer"> <img class="footer-anpc"
+              src="pictures/anpc-sal1-1.png" alt="Anpc"></a>
+          <a href="https://consumer-redress.ec.europa.eu/site-relocation_en?event=main.home2.show&lng=RO"
+            target="_blank" rel="noopener noreferrer"><img class="footer-anpc" src="pictures/anpc-sol.png"
+              alt="Anpc 2"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2025 Cupsheria. Toate drepturile rezervate. Dezvoltat de <a
+          href="https://d.newsweek.com/en/full/1905075/file-photo-smiling-dog.jpg?w=1200&f=ca8af48b1c6f394ff2244b683553f637">
+          PW</a></p>
+    </div>
   </footer>
 
-<script>
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.querySelector('.menu');
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
 
-  hamburger.addEventListener('click', () => {
-    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-  });
-</script>
+    hamburger.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
 
-  </body>
-  </html>
+</body>
+
+</html>
