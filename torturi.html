@@ -243,23 +243,24 @@
       }
 
 
-     /* function addOrder() {
-        let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-        cart.push(selectionText.textContent);
-         sessionStorage.setItem("cart", JSON.stringify(cart));
-        console.log(cart);
-      }*/
 
       function addOrder() {
-  // Load cart or start with empty object
+
   let cart = JSON.parse(sessionStorage.getItem("cart")) || {};
 
   let item = selectionText.textContent;
 
-  // Update count
-  cart[item] = (cart[item] || 0) + 1;
+  const price = 100;
 
-  // Save cart back
+        
+        if (!cart[item]) {
+          cart[item] = { quantity: 0, price: price };
+        }
+
+  //cart[item] = (cart[item] || 0) + 1;
+if(cart[item]) {cart[item].quantity += 1;}
+  cart[item].price = price*cart[item].quantity;
+
   sessionStorage.setItem("cart", JSON.stringify(cart));
 
   console.log(cart);

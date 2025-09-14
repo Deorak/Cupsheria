@@ -86,7 +86,7 @@
         </p>
         <div class="platouri-addtocart">
           <input type="number" id="quantity" data-item="platou1" name="quantity" min="1" max="20" value="1">
-          <button type="button" data-item="platou1" onclick="addOrder(this)">Adauga in cos</button>
+          <button type="button" data-item="platou1" data-price="30" onclick="addOrder(this)">Adauga in cos</button>
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@
         </p>
         <div class="platouri-addtocart">
           <input type="number" id="quantity" data-item="platou2" name="quantity" min="1" max="20" value="1">
-          <button type="button" data-item="platou2" onclick="addOrder(this)">Adauga in
+          <button type="button" data-item="platou2" data-price="40" onclick="addOrder(this)">Adauga in
             cos</button>
         </div>
       </div>
@@ -132,33 +132,35 @@
         </p>
         <div class="platouri-addtocart">
           <input type="number" id="quantity" data-item="platou3" name="quantity" min="1" max="20" value="1">
-          <button type="button" data-item="platou3" onclick="addOrder(this)">Adauga in
+          <button type="button" data-item="platou3" data-price="30" onclick="addOrder(this)">Adauga in
             cos</button>
         </div>
       </div>
     </div>
     <script>
       function addOrder(button) {
-        const productBox = button.closest(".platouri-addtocart"); 
-        const input = productBox.querySelector("input[type=number]"); 
-        const quantity = input.value;
+        const productBox = button.closest(".platouri-addtocart");
+        const input = productBox.querySelector("input[type=number]");
+
+        const item = button.dataset.item; //item
+        const quantity = Number(input.value); //value
+        const price = Number(button.dataset.price); //price
 
         let cart = JSON.parse(sessionStorage.getItem("cart")) || {};
 
-      console.log(quantity);
 
-      
-        cart[button.dataset.item] = (cart[button.dataset.item] || 0) + Number(quantity);
+        if (!cart[item]) {
+          cart[item] = { quantity: 0, price: price };
+        }
 
-        
+        cart[item].quantity += quantity;
+        cart[item].price = price*cart[item].quantity;
+
+  
         sessionStorage.setItem("cart", JSON.stringify(cart));
 
-        console.log(cart);
 
-        console.log("Item:", button.dataset.item);
-        console.log("Quantity:", quantity);
-
-
+        console.log("Cart:", cart);
       }
     </script>
 

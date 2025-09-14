@@ -85,20 +85,25 @@
   function test() {
     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-    console.log(cart);
-  
+    
+   let total = 0;
+  for (const key in cart) {
+    total += cart[key].price;
+  }
+  console.log(total);
   }
 </script>
 
     <div class="cart-summary">
       <h3>Summary</h3>
-      <p>Total: <strong>200 RON</strong></p>
-      <p>Total: <strong>200 RON</strong></p>
-      <p>Total: <strong>200 RON</strong></p>
-      <p>Total: <strong>200 RON</strong></p>
-      <p>Total: <strong>200 RON</strong></p>
-      <p>Total: <strong>200 RON</strong></p>
-      <button class="summary-button" onclick="test()">Comanda</button>
+         <input type="text" id="message-name" placeholder="Nume">
+         <input type="email" id="message-email" placeholder="E-mail">
+         <input type="tel" id="message-phone" placeholder="Telefon">
+         <textarea id="message-content" placeholder="Mesaj"></textarea>
+          <div class="cart-summary" id="cart-total">
+          </div>
+         <button class="contact-button" onclick="sendOrder()">Comanda</button>
+        <button  onclick="test()">test</button>
     </div>
 
 </div>  
@@ -106,6 +111,39 @@
      <a href="platouri.html" class="continua-cumparaturi">Continua cumparaturile</a>
        
   </main>
+
+  <script>
+   
+    function renderSum() {
+       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+        const summaryDiv = document.getElementById('cart-total');
+  summaryDiv.innerHTML = ''; 
+
+
+         let total = 0;
+  for (const key in cart) {
+    total += cart[key].price;
+  }
+    summaryDiv.textContent = `Total: ${total} RON`;
+  
+  }
+
+  
+    renderSum();
+  </script>
+
+  <script>
+    function sendOrder(){
+  let parms = {
+    name : document.getElementById("message-name").value,
+    email : document.getElementById("message-email").value,
+    telephone : document.getElementById("message-phone").value,
+    message : document.getElementById("message-content").value,
+  }
+  emailjs.send("service_86te3q4", "template_c65oecn", parms).then(alert("Email Sent!"))
+}
+ 
+  </script>
 
    <script>
    
@@ -125,8 +163,10 @@
         const decrement = document.createElement("BUTTON");
         const increment = document.createElement("BUTTON");
 
+        const initialPrice = cart[key].price/cart[key].quantity;
+
         div.className = 'cart-item';
-        div.textContent = `${key}`+` (x${value})`;
+        div.textContent = `${key}`+` (x${value.quantity})` + ` - ${value.price} RON`;
         
         cartActions.className = "cart-actions";
 
@@ -138,21 +178,25 @@
 
        decrement.onclick = function() {
           
-          cart[key] -=1;
-          if (cart[key] === 0) {
+          cart[key].quantity -=1;
+            cart[key].price = initialPrice*cart[key].quantity;
+          if (cart[key].quantity === 0) {
             delete cart[key];
           }
           
+
           sessionStorage.setItem("cart", JSON.stringify(cart));
           renderCart();
+          renderSum();
         };
 
         increment.onclick = function() {
-           cart[key] +=1;
-          
+           cart[key].quantity +=1;
+          cart[key].price = initialPrice*cart[key].quantity;
           
           sessionStorage.setItem("cart", JSON.stringify(cart));
           renderCart();
+          renderSum();
         };
 
         cartActions.appendChild(decrement);
@@ -166,6 +210,7 @@
 
   
     renderCart();
+    
   </script>
 
   <footer>
