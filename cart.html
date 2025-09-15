@@ -17,7 +17,17 @@
   <link rel="stylesheet" href="styles/style.css">
   <link rel="shortcut icon" href="icons/tab-icon-2.webp">
   <script src="globals.js"></script>
- 
+
+    <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+ <script type="text/javascript">
+    (function(){
+        emailjs.init({
+          publicKey: "53zbAOSIO2Ie4Cyz0",
+        });
+    })();
+  </script>
 </head>
 
 <body>
@@ -81,29 +91,27 @@
       <div class="cart-content" id="cart"></div>
      
     </div>
-<script>
-  function test() {
-    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-    
-   let total = 0;
-  for (const key in cart) {
-    total += cart[key].price;
-  }
-  console.log(total);
-  }
-</script>
 
     <div class="cart-summary">
       <h3>Summary</h3>
-         <input type="text" id="message-name" placeholder="Nume">
-         <input type="email" id="message-email" placeholder="E-mail">
-         <input type="tel" id="message-phone" placeholder="Telefon">
-         <textarea id="message-content" placeholder="Mesaj"></textarea>
-          <div class="cart-summary" id="cart-total">
+      <form onsubmit="sendMail(event)">
+         <input type="text" id="message-name" placeholder="Nume " required oninvalid="setCustomMessage(this)" oninput="setCustomMessage(this)">
+         <input type="email" id="message-email" placeholder="E-mail " required oninvalid="setCustomMessage(this)" oninput="setCustomMessage(this)">
+         <input type="tel" id="message-phone" placeholder="Telefon " required oninvalid="setCustomMessage(this)" oninput="setCustomMessage(this)">
+        
+         <div class="checkbox-container">
+         <input type="checkbox" id="makeExtraRequired" onclick="toggleRequired(this)">
+          <label for="makeExtraRequired">Livrare la adresa</label>
           </div>
-         <button class="contact-button" onclick="sendOrder()">Comanda</button>
-        <button  onclick="test()">test</button>
+        
+         <input type="text" id="extra" name="extra" placeholder="Adresa" oninvalid="setCustomMessage(this)" oninput="setCustomMessage(this)">
+         <textarea id="message-content" placeholder="Mesaj"></textarea>
+
+          <div class="cart-final" id="cart-total">
+          </div>
+         <button type="submit" class="contact-button" >Comanda</button>
+        </form>
     </div>
 
 </div>  
@@ -112,6 +120,31 @@
        
   </main>
 
+
+   <script>
+    
+  
+ 
+  </script>
+  
+<script>
+    function toggleRequired(checkbox) {
+      const extraField = document.getElementById("extra");
+      if (checkbox.checked) {
+        extraField.setAttribute("required", "true");
+      } else {
+        extraField.removeAttribute("required");
+      }
+    }
+
+    function setCustomMessage(input) {
+      if (input.validity.valueMissing) {
+        input.setCustomValidity("Camp Obligatoriu!");
+      } else {
+        input.setCustomValidity(""); // Reset message if valid
+      }
+    }
+  </script>
   <script>
    
     function renderSum() {
@@ -124,7 +157,7 @@
   for (const key in cart) {
     total += cart[key].price;
   }
-    summaryDiv.textContent = `Total: ${total} RON`;
+    summaryDiv.innerHTML = `<strong>Total:</strong> ${total} RON`;
   
   }
 
@@ -132,18 +165,7 @@
     renderSum();
   </script>
 
-  <script>
-    function sendOrder(){
-  let parms = {
-    name : document.getElementById("message-name").value,
-    email : document.getElementById("message-email").value,
-    telephone : document.getElementById("message-phone").value,
-    message : document.getElementById("message-content").value,
-  }
-  emailjs.send("service_86te3q4", "template_c65oecn", parms).then(alert("Email Sent!"))
-}
  
-  </script>
 
    <script>
    
@@ -297,7 +319,7 @@
       menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     });
   </script>
-
+<script  src="test.js"></script>
 </body>
 
 </html>
