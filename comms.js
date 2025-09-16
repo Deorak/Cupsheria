@@ -1,3 +1,9 @@
+(function(){
+        emailjs.init({
+          publicKey: "53zbAOSIO2Ie4Cyz0",
+        });
+    })();
+
 function sendMail(event){
   console.log("inside function");
   if (event) event.preventDefault();

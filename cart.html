@@ -16,18 +16,11 @@
 
   <link rel="stylesheet" href="styles/style.css">
   <link rel="shortcut icon" href="icons/tab-icon-2.webp">
-  <script src="globals.js"></script>
-
+  
     <script type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
   </script>
- <script type="text/javascript">
-    (function(){
-        emailjs.init({
-          publicKey: "53zbAOSIO2Ie4Cyz0",
-        });
-    })();
-  </script>
+
 </head>
 
 <body>
@@ -77,11 +70,14 @@
       
       </ul>
       <div class="cart-icon-container"> 
+        <div class="notifications-count"></div>
         <a class="cart-icon" href="cart.html" > <img src="icons/shopping-cart.png"
               alt="Cart"></a></div>
        </div>
     </nav>
   </header>
+
+
 
   <main>
     <div class="checkout">
@@ -121,119 +117,6 @@
   </main>
 
 
-   <script>
-    
-  
- 
-  </script>
-  
-<script>
-    function toggleRequired(checkbox) {
-      const extraField = document.getElementById("extra");
-      if (checkbox.checked) {
-        extraField.setAttribute("required", "true");
-      } else {
-        extraField.removeAttribute("required");
-      }
-    }
-
-    function setCustomMessage(input) {
-      if (input.validity.valueMissing) {
-        input.setCustomValidity("Camp Obligatoriu!");
-      } else {
-        input.setCustomValidity(""); 
-      }
-    }
-  </script>
-  <script>
-   
-    function renderSum() {
-       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-        const summaryDiv = document.getElementById('cart-total');
-  summaryDiv.innerHTML = ''; 
-
-
-         let total = 0;
-  for (const key in cart) {
-    total += cart[key].price;
-  }
-    summaryDiv.innerHTML = `<strong>Total:</strong> ${total} RON`;
-  
-  }
-
-  
-    renderSum();
-  </script>
-
- 
-
-   <script>
-   
-    function renderCart() {
-       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-      const cartDiv = document.getElementById('cart');
-      cartDiv.innerHTML = '';
-
-      if (Object.keys(cart).length === 0) {
-        cartDiv.innerHTML = '<p>Cosul tau este gol</p>';
-        return;
-      }
-
-      Object.entries(cart).forEach(([key, value]) => {
-        const div = document.createElement('div');
-        const cartActions=document.createElement('div');
-        const decrement = document.createElement("BUTTON");
-        const increment = document.createElement("BUTTON");
-
-        const initialPrice = cart[key].price/cart[key].quantity;
-
-        div.className = 'cart-item';
-        div.textContent = `${key}`+` (x${value.quantity})` + ` - ${value.price} RON`;
-        
-        cartActions.className = "cart-actions";
-
-        decrement.className = "cart-button";
-        decrement.textContent = "-";
-
-        increment.className = "cart-button"
-        increment.textContent = "+";
-
-       decrement.onclick = function() {
-          
-          cart[key].quantity -=1;
-            cart[key].price = initialPrice*cart[key].quantity;
-          if (cart[key].quantity === 0) {
-            delete cart[key];
-          }
-          
-
-          sessionStorage.setItem("cart", JSON.stringify(cart));
-          renderCart();
-          renderSum();
-        };
-
-        increment.onclick = function() {
-           cart[key].quantity +=1;
-          cart[key].price = initialPrice*cart[key].quantity;
-          
-          sessionStorage.setItem("cart", JSON.stringify(cart));
-          renderCart();
-          renderSum();
-        };
-
-        cartActions.appendChild(decrement);
-        cartActions.appendChild(increment);
-        div.appendChild(cartActions);
-        
-        
-        cartDiv.appendChild(div);
-      });
-    }
-
-  
-    renderCart();
-    
-  </script>
 
   <footer>
     <div class="footer-content">
@@ -310,16 +193,9 @@
   </footer>
 
 
-
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('.menu');
-
-    hamburger.addEventListener('click', () => {
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    });
-  </script>
-<script  src="test.js"></script>
+<script  src="main.js"></script>
+<script  src="comms.js"></script>
+<script src="cart.js"></script>
 </body>
 
 </html>
