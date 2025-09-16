@@ -85,8 +85,12 @@
           Alte detalii platou nr 1<br>
         </p>
         <div class="platouri-addtocart">
-          <input type="number" id="quantity" data-item="platou1" name="quantity" min="1" max="20" value="1">
-          <button type="button" data-item="platou1" data-price="30" onclick="addOrder(this)">Adauga in cos</button>
+            <button class="decrement" onclick="modifyValue(this)">-</button>
+          <input type="number" class="platouri-input" id="quantity" data-item="Platou 1" name="quantity" min="1"
+            max="20" value="1">
+              <button class="increment" onclick="modifyValue(this)">+</button>
+          <button type="button" class="platouri-button" data-item="Platou 1" data-price="30"
+            onclick="addOrder(this)">Adauga in cos</button>
         </div>
       </div>
     </div>
@@ -108,13 +112,20 @@
           Alte detalii platou nr 2<br>
         </p>
         <div class="platouri-addtocart">
-          <input type="number" id="quantity" data-item="platou2" name="quantity" min="1" max="20" value="1">
-          <button type="button" data-item="platou2" data-price="40" onclick="addOrder(this)">Adauga in
+
+          <button class="decrement" onclick="modifyValue(this)">-</button>
+          <input type="number" class="platouri-input" id="quantity" data-item="Platou 2" name="quantity" min="1"
+            max="20" value="1">
+          <button class="increment" onclick="modifyValue(this)">+</button>
+
+          <button type="button" class="platouri-button" data-item="Platou 2" data-price="40"
+            onclick="addOrder(this)">Adauga in
             cos</button>
+
         </div>
       </div>
     </div>
-
+  
     <div class="platouri-content">
 
       <img class="platouri-picture" src="pictures/platou3.jpg">
@@ -131,12 +142,33 @@
           Alte detalii platou nr 3<br>
         </p>
         <div class="platouri-addtocart">
-          <input type="number" id="quantity" data-item="platou3" name="quantity" min="1" max="20" value="1">
-          <button type="button" data-item="platou3" data-price="30" onclick="addOrder(this)">Adauga in
+            <button class="decrement" onclick="modifyValue(this)">-</button>
+          <input type="number" class="platouri-input" id="quantity" data-item="Platou 3" name="quantity" min="1"
+            max="20" value="1">
+              <button class="increment" onclick="modifyValue(this)">+</button>
+          <button type="button" class="platouri-button" data-item="Platou 3" data-price="30"
+            onclick="addOrder(this)">Adauga in
             cos</button>
         </div>
       </div>
     </div>
+
+      <script>
+      function modifyValue(button) {
+        const productBox = button.closest(".platouri-addtocart");
+        const input = productBox.querySelector("input[type=number]");
+
+
+        if (button.classList.contains("increment")) {
+          console.log("increment");
+          input.stepUp();
+        } else if (button.classList.contains("decrement")) {
+          console.log("decrement");
+          input.stepDown();
+        }
+      }
+    </script>
+
     <script>
       function addOrder(button) {
         const productBox = button.closest(".platouri-addtocart");
@@ -154,9 +186,9 @@
         }
 
         cart[item].quantity += quantity;
-        cart[item].price = price*cart[item].quantity;
+        cart[item].price = price * cart[item].quantity;
 
-  
+
         sessionStorage.setItem("cart", JSON.stringify(cart));
 
 
